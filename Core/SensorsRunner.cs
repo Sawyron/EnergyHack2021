@@ -13,6 +13,9 @@ namespace EnergyHack2021.Core
     {
         
         private List<string> _steps;
+        private DateTime _date = DateTime.Now;
+
+        public DateTime Date => _date;
         public EnergyCityModel EnergyModel { get; set; }
 
        
@@ -28,6 +31,10 @@ namespace EnergyHack2021.Core
                 return new List<RecomendationModel>();
             }
             string[] strarr = _steps.First().Split(";");
+
+            DateTime data = DateTime.Parse(strarr[0]);
+            TimeSpan time = TimeSpan.Parse(strarr[1]);
+            _date = data + time;
             _steps.RemoveAt(0);
             string commandIn = "";
             for (int i = 0; i < EnergyModel.DistrictPowers.Length; i++)

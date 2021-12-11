@@ -22,6 +22,7 @@ namespace EnergyHack2021.MVVM.Model
                 Amount = amount;
             }
         }
+
         private List<Transfer> _transfers = new();
         private readonly int[,] DISTRICT_HEIGHT = {
                 {0, 1, 1, 0, 0, 1, 0, 0, 1},

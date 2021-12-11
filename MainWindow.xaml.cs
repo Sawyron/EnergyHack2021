@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace EnergyHack2021
 {
@@ -46,15 +47,30 @@ namespace EnergyHack2021
                 _transferModelList.Add(transferModel);
             }
             dgTransfersList.ItemsSource = _transferModelList;
+
+            DispatcherTimer dt = new DispatcherTimer();
+            dt.Interval = TimeSpan.FromSeconds(5);
+            dt.Tick += dtTick;
+            dt.Start();
+        }
+
+        private void dtTick(object sender, EventArgs e)
+        {
+            UpdateUI();
         }
 
         private void Step_Button_Click(object sender, RoutedEventArgs e)
         {
+            UpdateUI();
+        }
+        private void UpdateUI()
+        {
             _recomendationsList.Clear();
-            foreach(RecomendationModel recomendation in _sensorsRunner.GetSuggestions())
+            foreach (RecomendationModel recomendation in _sensorsRunner.GetSuggestions())
             {
                 _recomendationsList.Add(recomendation);
             }
+            TimeLabel.Text = _sensorsRunner.Date.ToString();
         }
     }
 }
