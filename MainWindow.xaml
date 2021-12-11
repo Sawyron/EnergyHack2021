@@ -1,0 +1,43 @@
+﻿<Window x:Class="EnergyHack2021.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EnergyHack2021"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="900" WindowStyle="ThreeDBorderWindow" SizeToContent="Manual" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Image Source="pack://application:,,,/Images/img.png" Grid.Column="0" Margin="10"/>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <DataGrid x:Name="dgRecomendationsList" AutoGenerateColumns="False" Grid.Row="0" Margin="5">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path = DistrictCode}" IsReadOnly="True" Header="№"/>
+                    <DataGridTextColumn Binding="{Binding Path = DistrictName}" IsReadOnly="True" Header="District"/>
+                    <DataGridTextColumn Binding="{Binding Path = Message}" IsReadOnly="True" Header="Recomentadion" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid x:Name="dgTransfersList" AutoGenerateColumns="False" Grid.Row="1" Margin="5">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path = SourceDistrict}" IsReadOnly="True" Header="From"/>
+                    <DataGridTextColumn Binding="{Binding Path = DestinationDistrirct}" IsReadOnly="True" Header="To"/>
+                    <DataGridTextColumn Binding="{Binding Path = Amount}" Header="Amount" IsReadOnly="True" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <Grid Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Button Width="80" Height="40" Margin="10" Content="Step" Click="Step_Button_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+    </Grid>
+</Window>
