@@ -24,15 +24,15 @@
             <DataGrid x:Name="dgRecomendationsList" AutoGenerateColumns="False" Grid.Row="0" Margin="5">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Path = DistrictCode}" IsReadOnly="True" Header="№"/>
-                    <DataGridTextColumn Binding="{Binding Path = DistrictName}" IsReadOnly="True" Header="District"/>
-                    <DataGridTextColumn Binding="{Binding Path = Message}" IsReadOnly="True" Header="Recomentadion" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Path = DistrictName}" IsReadOnly="True" Header="Район"/>
+                    <DataGridTextColumn Binding="{Binding Path = Message}" IsReadOnly="True" Header="Рекомендация" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
             <DataGrid x:Name="dgTransfersList" AutoGenerateColumns="False" Grid.Row="1" Margin="5">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Path = SourceDistrict}" IsReadOnly="True" Header="From"/>
-                    <DataGridTextColumn Binding="{Binding Path = DestinationDistrirct}" IsReadOnly="True" Header="To"/>
-                    <DataGridTextColumn Binding="{Binding Path = Amount}" Header="Amount" IsReadOnly="True" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Path = SourceDistrict}" IsReadOnly="True" Header="Отправитель"/>
+                    <DataGridTextColumn Binding="{Binding Path = DestinationDistrirct}" IsReadOnly="True" Header="Получатель"/>
+                    <DataGridTextColumn Binding="{Binding Path = Amount}" Header="Количество" IsReadOnly="True" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
@@ -41,8 +41,8 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button Grid.Column="0" Width="80" Height="40" Margin="10" Content="Step" Click="Step_Button_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <TextBlock Grid.Row="1" x:Name="TimeLabel" Width="auto" Height="auto"/>
+            <Button x:Name="StartButton" Grid.Column="0" Width="80" Height="40" Margin="10" Content="Начать" Click="Start_Button_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="1" x:Name="TimeLabel" Width="auto" Height="auto" FontSize="24"/>
         </Grid>
     </Grid>
 </Window>

@@ -20,16 +20,16 @@ namespace EnergyHack2021.MVVM.Model
             switch (recomentationCode)
             {
                 case 0:
-                    msg = "Can give";
+                    msg = "Возможна передача";
                     break;
                 case 1:
-                    msg = "Need energy";
+                    msg = "Нуждается в энергии";
                     break;
                 case 2:
-                    msg = "Decrease energy consumption";
+                    msg = "Пинизаить потребляемую мощность";
                     break;
                 case 3:
-                    msg = "Skip";
+                    msg = "Действий не требуется";
                     break;
             }
             Message = msg;

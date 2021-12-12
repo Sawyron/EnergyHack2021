@@ -25,6 +25,7 @@ namespace EnergyHack2021
         private BindingList<RecomendationModel> _recomendationsList = new();
         private SensorsRunner _sensorsRunner;
         private BindingList<TransferModel> _transferModelList = new();
+        private DispatcherTimer _dt;
 
         public MainWindow()
         {
@@ -49,9 +50,9 @@ namespace EnergyHack2021
             dgTransfersList.ItemsSource = _transferModelList;
 
             DispatcherTimer dt = new DispatcherTimer();
-            dt.Interval = TimeSpan.FromSeconds(5);
+            dt.Interval = TimeSpan.FromSeconds(3);
             dt.Tick += dtTick;
-            dt.Start();
+            _dt = dt;
         }
 
         private void dtTick(object sender, EventArgs e)
@@ -59,9 +60,10 @@ namespace EnergyHack2021
             UpdateUI();
         }
 
-        private void Step_Button_Click(object sender, RoutedEventArgs e)
+        private void Start_Button_Click(object sender, RoutedEventArgs e)
         {
-            UpdateUI();
+            _dt.Start();
+            StartButton.IsEnabled = false;
         }
         private void UpdateUI()
         {
